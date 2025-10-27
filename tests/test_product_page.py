@@ -16,12 +16,12 @@ def test_product_page_elements(chromium_page: Page):
     product_name_link.click()
 
     product_title = chromium_page.locator("[data-qa='get-product-title']")
-    product_title.is_visible()
+    expect(product_title).to_be_visible()
 
     price = chromium_page.locator("[data-qa='price-now']")
-    price.is_visible()
+    expect(price).to_be_visible()
 
     add_to_cart_button = chromium_page.locator("[data-qa='add-to-cart-btn']")
-    add_to_cart_button.is_enabled()
-    add_to_cart_button.is_visible()
+    expect(add_to_cart_button).to_be_enabled()
+    expect(add_to_cart_button).to_be_visible()
     expect(add_to_cart_button).to_have_text('В корзину')
