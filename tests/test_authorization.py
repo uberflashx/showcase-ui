@@ -1,12 +1,20 @@
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import expect, Page
+import pytest
 
+def test_authorization(chromium_page: Page):
+    chromium_page.goto('https://www.vseinstrumenti.ru/')
 
-def test_authorization():
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-        context = browser.new_context()
-        page = context.new_page()
+    login_button = chromium_page.locator("[data-qa='login-and-registration']")
+    login_button.click()
 
-        page.goto('https://www.vseinstrumenti.ru/')
+    email_input = chromium_page.locator("[data-qa='login']")
+    email_input.fill('ttlscrt22@gmail.com')
 
-        page.wait_for_timeout(100000)
+    email_submit_button = chromium_page.locator("[data-qa='submit']")
+    email_submit_button.click()
+
+    password_input = chromium_page.locator("[data-qa='password']")
+    password_input.fill('pa$$w0rd')
+
+    password_submit_button = chromium_page.locator("[data-qa='submit']")
+    password_submit_button.click()
