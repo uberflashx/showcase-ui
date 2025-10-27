@@ -34,4 +34,5 @@ Playwright и Pytest. В проекте реализованы ключевые 
 `playwright install`
 ### Запуск тестов
 `python -m pytest -s -v -k "test_cart"` # Запуск по имени теста
+
 `python -m pytest -s -v -m smoke` # Запуск по имени кастомной маркировки
