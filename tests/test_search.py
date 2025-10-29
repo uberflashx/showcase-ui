@@ -5,7 +5,7 @@ import pytest
 @pytest.mark.smoke
 @pytest.mark.search
 def test_search_for_product(chromium_page: Page, product: str, brand: str):
-    chromium_page.goto('https://www.vseinstrumenti.ru/')
+    chromium_page.goto('https://www.vseinstrumenti.ru/', wait_until='networkidle')
 
     search_input = chromium_page.locator("[data-qa='header-search-input']")
     search_input.fill(f'{product} {brand}')

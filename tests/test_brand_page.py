@@ -3,7 +3,7 @@ import pytest
 
 @pytest.mark.regression
 def test_brand_page_elements(chromium_page: Page):
-    chromium_page.goto('https://www.vseinstrumenti.ru/')
+    chromium_page.goto('https://www.vseinstrumenti.ru/', wait_until='networkidle')
 
     search_input = chromium_page.locator("[data-qa='header-search-input']")
     search_input.fill('газонокосилка Makita')

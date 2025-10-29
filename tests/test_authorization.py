@@ -2,7 +2,7 @@ from playwright.sync_api import expect, Page
 import pytest
 
 def test_authorization(chromium_page: Page):
-    chromium_page.goto('https://www.vseinstrumenti.ru/')
+    chromium_page.goto('https://www.vseinstrumenti.ru/', wait_until='networkidle')
 
     login_button = chromium_page.locator("[data-qa='login-and-registration']")
     login_button.click()
