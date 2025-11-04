@@ -9,6 +9,8 @@ class CatalogPage(BasePage):
         self.search_button = page.locator("[data-qa='header-search-button']")
         self.search_results_tiles = page.locator("[data-qa='listing']")
         self.first_results_tile = page.locator("[data-qa='products-tile']").first
+        self.product_tile_cart_button = page.locator("[data-qa='product-add-to-cart-button']").first
+        self.pupup_go_to_cart_button = page.locator("[data-qa='go-to-basket']")
 
     def fill_search_field(self, search_string: str):
         self.search_input.fill(search_string)
@@ -22,3 +24,9 @@ class CatalogPage(BasePage):
 
     def click_first_results_tile(self):
         self.first_results_tile.click()
+
+    def click_tile_add_to_cart_button(self):
+        self.product_tile_cart_button.click()
+
+    def click_pupup_go_to_cart_button(self):
+        self.pupup_go_to_cart_button.click()
