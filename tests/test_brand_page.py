@@ -1,24 +1,14 @@
-from playwright.sync_api import expect, Page
 import pytest
+from pages.catalog_page import CatalogPage
+from pages.product_page import ProductPage
+from pages.brand_page import BrandPage
 
 @pytest.mark.regression
-def test_brand_page_elements(chromium_page: Page):
-    chromium_page.goto('https://www.vseinstrumenti.ru/', wait_until='networkidle')
-
-    search_input = chromium_page.locator("[data-qa='header-search-input']")
-    search_input.fill('газонокосилка Makita')
-
-    search_button = chromium_page.locator("[data-qa='header-search-button']")
-    search_button.click()
-
-    product_name_link = chromium_page.locator("[data-qa='product-name']").first
-    product_name_link.click()
-
-    brand_name_link = chromium_page.locator("a[class='vzu4Gh']")
-    brand_name_link.click()
-
-    brand_image = chromium_page.locator("//img[contains(@class, 'image -show-placeholder')]")
-    expect(brand_image).to_be_visible()
-
-    brand_products_listing = chromium_page.locator("div[id='product-listing-top']")
-    expect(brand_products_listing).to_be_visible()
+def test_brand_page_elements(catalog_page: CatalogPage, product_page: ProductPage, brand_page: BrandPage):
+    catalog_page.visit('https://www.vseinstrumenti.ru/')
+    catalog_page.fill_search_field(search_string='газонокосилка Makita')
+    catalog_page.click_search_button()
+    catalog_page.click_first_results_tile()
+    product_page.click_brand_image_link()
+    brand_page.check_visible_brand_image()
+    brand_page.check_visible_brand_products_listing()

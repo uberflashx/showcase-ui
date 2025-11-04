@@ -1,7 +1,6 @@
 import pytest
 from pages.catalog_page import CatalogPage
 
-
 @pytest.mark.smoke
 @pytest.mark.search
 def test_search_for_product(catalog_page: CatalogPage):

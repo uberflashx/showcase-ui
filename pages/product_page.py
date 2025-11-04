@@ -8,6 +8,7 @@ class ProductPage(BasePage):
         self.product_title = page.locator("[data-qa='get-product-title']")
         self.current_price = page.locator("[data-qa='price-now']")
         self.add_to_cart_button = page.locator("[data-qa='add-to-cart-btn']")
+        self.brand_image_link = page.locator("a[class='vzu4Gh']")
 
     def check_visible_product_title(self):
         expect(self.product_title).to_be_visible()
@@ -21,3 +22,6 @@ class ProductPage(BasePage):
 
     def click_add_to_cart_button(self):
         self.add_to_cart_button.click()
+
+    def click_brand_image_link(self):
+        self.brand_image_link.click()
