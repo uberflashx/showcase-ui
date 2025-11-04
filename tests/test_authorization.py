@@ -1,20 +1,15 @@
-from playwright.sync_api import expect, Page
 import pytest
+from pages.catalog_page import CatalogPage
 
-def test_authorization(chromium_page: Page):
-    chromium_page.goto('https://www.vseinstrumenti.ru/', wait_until='networkidle')
-
-    login_button = chromium_page.locator("[data-qa='login-and-registration']")
-    login_button.click()
-
-    email_input = chromium_page.locator("[data-qa='login']")
-    email_input.fill('ttlscrt22@gmail.com')
-
-    email_submit_button = chromium_page.locator("[data-qa='submit']")
-    email_submit_button.click()
-
-    password_input = chromium_page.locator("[data-qa='password']")
-    password_input.fill('pa$$w0rd')
-
-    password_submit_button = chromium_page.locator("[data-qa='submit']")
-    password_submit_button.click()
+@pytest.mark.regression
+def test_authorization(catalog_page: CatalogPage):
+    catalog_page.visit('https://www.vseinstrumenti.ru/')
+    catalog_page.check_visible_login_button()
+    catalog_page.click_login_button()
+    catalog_page.check_visible_email_input()
+    catalog_page.fill_email_input(email='ttlscrt22@gmail.com')
+    catalog_page.click_submit_login_button()
+    catalog_page.check_visible_password_input()
+    catalog_page.fill_password_input(password='pa$$w0rd')
+    catalog_page.click_submit_password_button()
+    catalog_page.check_visible_user_menu()
