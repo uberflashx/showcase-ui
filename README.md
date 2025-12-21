@@ -13,6 +13,7 @@ Playwright и Pytest. В проекте реализованы ключевые 
 - **Pytest**
 - **Pytest-rerunfailures**
 - **Git/GitHub**
+- **Allure**
 ---
 ## Структура проекта
 * `showcase-ui/`
@@ -27,12 +28,18 @@ Playwright и Pytest. В проекте реализованы ключевые 
   * `requirements.txt` # Зависимости проекта
   * `README.md` # Этот файл
 ---
+## Allure-отчеты
+В проект добавлен Allure-репортинг с кастомными шагами, тайтлами, разбивкой по Epic/Feature/Story, а также добавлена возможность прикладывания Playwright Traces к отчетам.
+
+---
 ## Установка и запуск
 ### Установка зависимостей
 `pip3 install -r requirements.txt`
 ### Установка браузеров
 `playwright install`
-### Запуск тестов
-`python -m pytest -s -v -k "test_cart"` # Запуск по имени теста
+### Запуск тестов с сохранением данных для Allure-отчета
+`python -m pytest -s -v -k "test_cart" --alluredir=./allure-results` # Запуск по имени теста
 
-`python -m pytest -s -v -m smoke` # Запуск по имени кастомной маркировки
+`python -m pytest -s -v -m smoke --alluredir=./allure-results` # Запуск по имени кастомной маркировки
+### Открытие отчета в браузере
+`allure serve ./allure-results`
