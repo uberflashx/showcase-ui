@@ -13,7 +13,7 @@ from tools.allure.stories import AllureStory
 @allure.feature(AllureFeature.SEARCH)
 @allure.story(AllureStory.SEARCH)
 def test_brand_page_elements(catalog_page: CatalogPage, product_page: ProductPage, brand_page: BrandPage):
-    catalog_page.visit('https://www.vseinstrumenti.ru/')
+    catalog_page.visit("/")
     catalog_page.fill_search_field(search_string='газонокосилка Makita')
     catalog_page.click_search_button()
     catalog_page.click_first_results_tile()
