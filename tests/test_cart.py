@@ -12,7 +12,7 @@ from tools.allure.stories import AllureStory
 @allure.feature(AllureFeature.CART)
 @allure.story(AllureStory.CART)
 def test_adding_product_to_cart(catalog_page: CatalogPage, cart_page: CartPage):
-    catalog_page.visit('https://www.vseinstrumenti.ru/')
+    catalog_page.visit("/")
     catalog_page.fill_search_field(search_string='газонокосилка Makita')
     catalog_page.click_search_button()
     catalog_page.click_tile_add_to_cart_button()
