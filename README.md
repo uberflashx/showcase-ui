@@ -50,11 +50,17 @@ TEST_USER.PASSWORD="pass123"
 ## Установка и запуск
 ### Установка зависимостей
 `pip3 install -r requirements.txt`
+
 ### Установка браузеров
 `playwright install`
+
 ### Запуск тестов с сохранением данных для Allure-отчета
 `python -m pytest -s -v -k "test_cart" --alluredir=./allure-results` # Запуск по имени теста
 
-`python -m pytest -s -v -m smoke --alluredir=./allure-results` # Запуск по имени кастомной маркировки
+`python -m pytest -s -v -m "regression" --alluredir=./allure-results` # Запуск по имени кастомной маркировки
+
+### Параллельный запуск тестов с иcпользованием pytest-xdist
+`python -m pytest -s -v -m "regression" -n auto` # Вместо значения auto можно указать вручную количество потоков
+
 ### Открытие отчета в браузере
 `allure serve ./allure-results`
