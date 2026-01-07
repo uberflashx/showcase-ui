@@ -8,17 +8,17 @@ from pages.product_page import ProductPage
 
 
 @pytest.fixture
-def catalog_page(chromium_page: Page) -> CatalogPage:
-    return CatalogPage(page=chromium_page)
+def catalog_page(page: Page) -> CatalogPage:
+    return CatalogPage(page=page)
 
 @pytest.fixture
-def product_page(chromium_page: Page) -> ProductPage:
-    return ProductPage(page=chromium_page)
+def product_page(page: Page) -> ProductPage:
+    return ProductPage(page=page)
 
 @pytest.fixture
-def brand_page(chromium_page: Page) -> BrandPage:
-    return BrandPage(page=chromium_page)
+def brand_page(page: Page) -> BrandPage:
+    return BrandPage(page=page)
 
 @pytest.fixture
-def cart_page(chromium_page: Page) -> CartPage:
-    return CartPage(page=chromium_page)
+def cart_page(page: Page) -> CartPage:
+    return CartPage(page=page)
