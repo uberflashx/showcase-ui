@@ -64,3 +64,7 @@ TEST_USER.PASSWORD="pass123"
 
 ### Открытие отчета в браузере
 `allure serve ./allure-results`
+
+---
+## CI
+Автоматизированный запуск тестов настроен через **GitHub Actions** с триггерами push и pull request в ветку **main**. Allure-отчеты автоматически публикуются на **GitHub Pages** с сохранением истории запусков.
