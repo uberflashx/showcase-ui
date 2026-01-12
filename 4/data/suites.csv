@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","30893","Check displaying product page elements and product characteristics","tests","Mon Jan 12 10:15:17 UTC 2026","broken","Mon Jan 12 10:15:48 UTC 2026","","test_product_page","",""
+"","30891","Navigation from catalog page to brand page","tests","Mon Jan 12 10:14:52 UTC 2026","broken","Mon Jan 12 10:15:23 UTC 2026","","test_brand_page","",""
+"","31233","Adding item to shopping cart and navigation to cart page","tests","Mon Jan 12 10:14:45 UTC 2026","broken","Mon Jan 12 10:15:17 UTC 2026","","test_cart","",""
+"","6245","User login with valid email and password","tests","Mon Jan 12 10:14:45 UTC 2026","failed","Mon Jan 12 10:14:52 UTC 2026","","test_authorization","",""
+"","30911","Search for existing item","tests","Mon Jan 12 10:15:23 UTC 2026","broken","Mon Jan 12 10:15:54 UTC 2026","","test_search","",""
