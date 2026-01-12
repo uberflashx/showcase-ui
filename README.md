@@ -60,7 +60,7 @@ TEST_USER.PASSWORD="pass123"
 `python -m pytest -s -v -m "regression" --alluredir=./allure-results` # Запуск по имени кастомной маркировки
 
 ### Параллельный запуск тестов с иcпользованием pytest-xdist
-`python -m pytest -s -v -m "regression" -n auto` # Вместо значения auto можно указать вручную количество потоков
+`python -m pytest -s -v -m "regression" -numprocesses auto` # Вместо значения auto можно указать вручную количество потоков
 
 ### Открытие отчета в браузере
 `allure serve ./allure-results`
