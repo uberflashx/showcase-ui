@@ -19,7 +19,6 @@ class TestCIDemo:
         catalog_page.check_page_have_title()
 
 
-
     @allure.title('Search for existing item')
     @allure.epic(AllureEpic.CONSUMER)
     @allure.feature(AllureFeature.SEARCH)
