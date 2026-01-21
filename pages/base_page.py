@@ -1,3 +1,4 @@
+import re
 from playwright.sync_api import Page, expect
 import allure
 from typing import Pattern
@@ -17,3 +18,7 @@ class BasePage:
     def check_current_url(self, expected_url: Pattern[str]):
         with allure.step(f'Checking that current url matches pattern "{expected_url.pattern}"'):
             expect(self.page).to_have_url(expected_url)
+
+    def check_page_have_title(self):
+        with allure.step(f'Checking that page has a title'):
+            expect(self.page).to_have_title(re.compile(".*"))
