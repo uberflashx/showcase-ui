@@ -6,9 +6,9 @@ class ProductPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
 
-        self.product_title = page.locator("[data-qa='get-product-title']")
-        self.current_price = page.locator("[data-qa='price-now']")
-        self.add_to_cart_button = page.locator("[data-qa='add-to-cart-btn']")
+        self.product_title = page.get_by_test_id('get-product-title')
+        self.current_price = page.get_by_test_id('price-now')
+        self.add_to_cart_button = page.get_by_test_id('add-to-cart-btn')
         self.brand_image_link = page.locator("a[class='vzu4Gh']")
 
     def check_visible_product_title(self):

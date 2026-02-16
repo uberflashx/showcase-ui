@@ -6,9 +6,9 @@ class CartPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
 
-        self.added_product_card = page.locator("[data-qa='product-item']")
-        self.total_price_number = page.locator("[data-qa='checkout-total-total-price']")
-        self.create_order_button = page.locator("[data-qa='cart-total-order-create-button']")
+        self.added_product_card = page.get_by_test_id('product-item')
+        self.total_price_number = page.get_by_test_id('checkout-total-total-price')
+        self.create_order_button = page.get_by_test_id('cart-total-order-create-button')
 
     def check_visible_added_product_card(self):
         with allure.step('Checking that added to the cart item is visible'):

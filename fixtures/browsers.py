@@ -18,22 +18,23 @@ def initialize_browser_state(playwright: Playwright):
     browser = playwright.chromium.launch(headless=settings.headless)
     context = browser.new_context(base_url=settings.get_base_url())
     page = context.new_page()
+    playwright.selectors.set_test_id_attribute("data-qa")
 
     page.goto('https://www.vseinstrumenti.ru')
 
-    login_button = page.locator("[data-qa='login-and-registration']")
+    login_button = page.get_by_test_id('login-and-registration')
     login_button.click()
 
-    email_input = page.locator("[data-qa='login']")
+    email_input = page.get_by_test_id('login')
     email_input.fill(settings.test_user.email)
 
-    email_submit_button = page.locator("[data-qa='submit']")
+    email_submit_button = page.get_by_test_id('submit')
     email_submit_button.click()
 
-    password_input = page.locator("[data-qa='password']")
+    password_input = page.get_by_test_id('password')
     password_input.fill(settings.test_user.password)
 
-    password_submit_button = page.locator("[data-qa='submit']")
+    password_submit_button = page.get_by_test_id('submit')
     password_submit_button.click()
 
     context.storage_state(path=settings.browser_state_file)
