@@ -1,4 +1,3 @@
-from asyncio import wait_for
 import allure
 
 from components.authentication.authorization_modal_window_component import AuthorizationModalWindowComponent
@@ -11,15 +10,15 @@ class CatalogPage(BasePage):
 
         self.auth_modal_window = AuthorizationModalWindowComponent(page)
 
-        self.search_input = page.locator("[data-qa='header-search-input']")
-        self.search_button = page.locator("[data-qa='header-search-button']")
-        self.search_results_tiles = page.locator("[data-qa='listing']")
-        self.first_results_tile = page.locator("[data-qa='products-tile']").first
-        self.product_tile_cart_button = page.locator("[data-qa='product-add-to-cart-button']").first
-        self.pupup_go_to_cart_button = page.locator("[data-qa='go-to-basket']")
+        self.search_input = page.get_by_test_id('header-search-input')
+        self.search_button = page.get_by_test_id('header-search-button')
+        self.search_results_tiles = page.get_by_test_id('listing')
+        self.first_results_tile = page.get_by_test_id('products-tile').first
+        self.product_tile_cart_button = page.get_by_test_id('product-add-to-cart-button').first
+        self.pupup_go_to_cart_button = page.get_by_test_id('go-to-basket')
 
-        self.login_button = page.locator("[data-qa='login-and-registration']")
-        self.user_menu = page.locator("[data-qa='user-menu']")
+        self.login_button = page.get_by_test_id('login-and-registration')
+        self.user_menu = page.get_by_test_id('user-menu')
 
     def fill_search_field(self, search_string: str):
         with allure.step(f'Filling search input with search string: {search_string}'):

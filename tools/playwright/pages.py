@@ -16,6 +16,7 @@ def initialize_playwright_page(
     )
     context.tracing.start(screenshots=True, snapshots=True, sources=True)
     page = context.new_page()
+    playwright.selectors.set_test_id_attribute("data-qa")
 
     yield page
 
