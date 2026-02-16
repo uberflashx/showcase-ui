@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2343","Search for existing item","tests.demo","Mon Feb 16 12:54:29 UTC 2026","passed","Mon Feb 16 12:54:31 UTC 2026","TestCIDemo","test_ci_demo","",""
+"","2701","User login with valid email and password","tests.demo","Mon Feb 16 12:54:26 UTC 2026","passed","Mon Feb 16 12:54:29 UTC 2026","TestCIDemo","test_ci_demo","",""
+"","2282","Adding item to shopping cart and navigation to cart page","tests.demo","Mon Feb 16 12:54:32 UTC 2026","passed","Mon Feb 16 12:54:34 UTC 2026","TestCIDemo","test_ci_demo","",""
