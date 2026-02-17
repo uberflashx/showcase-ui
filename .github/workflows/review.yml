@@ -1,0 +1,37 @@
+name: AI Review
+
+on:
+  workflow_dispatch:
+    inputs:
+      review-command:
+        type: choice
+        default: run
+        options: [ run, run-inline, run-context, run-summary, run-inline-reply, run-summary-reply ]
+        description: "Review command"
+      pull-request-number:
+        type: string
+        required: true
+        description: "Pull request number"
+
+jobs:
+  ai-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run AI Review
+        uses: Nikita-Filonov/ai-review@v0.58.0
+        with:
+          review-command: ${{ inputs.review-command }}
+        env:
+          VCS__PIPELINE__OWNER: ${{ github.repository_owner }}
+
+          VCS__PIPELINE__REPO: ${{ github.event.repository.name }}
+
+          VCS__PIPELINE__PULL_NUMBER: ${{ inputs.pull-request-number }}
+
+          VCS__HTTP_CLIENT__API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          LLM__HTTP_CLIENT__API_TOKEN: ${{ secrets.OPENAI_API_KEY }}
