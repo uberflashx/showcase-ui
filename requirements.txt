@@ -7,3 +7,4 @@ email_validator==2.3.0
 pydantic==2.12.5
 pydantic-settings==2.12.0
 pytest-xdist==3.8.0
+xai-review==0.58.0
