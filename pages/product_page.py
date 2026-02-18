@@ -9,7 +9,9 @@ class ProductPage(BasePage):
         self.product_title = page.get_by_test_id('get-product-title')
         self.current_price = page.get_by_test_id('price-now')
         self.add_to_cart_button = page.get_by_test_id('add-to-cart-btn')
-        self.brand_image_link = page.locator("a[class='vzu4Gh']")
+
+    def brand_image_link(self, brand: str):
+        return self.page.get_by_role("link", name=brand).get_by_role("img")
 
     def check_visible_product_title(self):
         with allure.step('Checking that product title is visible'):
@@ -28,6 +30,6 @@ class ProductPage(BasePage):
         with allure.step('Clicking button "Add to cart"'):
             self.add_to_cart_button.click()
 
-    def click_brand_image_link(self):
+    def click_brand_image_link(self, brand: str):
         with allure.step('Clicking on the brand image'):
-            self.brand_image_link.click()
+            self.brand_image_link(brand).click()
