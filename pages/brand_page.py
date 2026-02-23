@@ -6,12 +6,14 @@ class BrandPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
 
-        self.brand_image = page.locator("//img[contains(@class, 'image -show-placeholder')]")
-        self.brand_products_listing = page.locator("div[id='product-listing-top']")
+        self.brand_products_listing = page.get_by_test_id('listing')
 
-    def check_visible_brand_image(self):
+    def brand_image(self, brand: str):
+        return self.page.get_by_role("img", name=brand, exact=True)
+
+    def check_visible_brand_image(self, brand: str):
         with allure.step('Checking that brand image is visible'):
-            expect(self.brand_image).to_be_visible()
+            expect(self.brand_image(brand)).to_be_visible()
 
     def check_visible_brand_products_listing(self):
         with allure.step('Checking that brand products are visible'):
